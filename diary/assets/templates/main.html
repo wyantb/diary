@@ -1,24 +1,36 @@
 <!DOCTYPE html>
+<html ng-app>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Online Diary</title>
-    <meta name="description" content="The least featured online diary tool you'll ever find.">
-    <meta name="viewport" content="width=device-width">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Online Diary</title>
+	<meta name="description" content="The least featured online diary tool you'll ever find.">
+	<meta name="viewport" content="width=device-width">
 </head>
 <body>
-    <!--[if lt IE 9]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
+	<!--[if lt IE 9]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
 
-    <p class="content" role="content">Hello world!</p>
 
-    <h1>Your entry:</h1>
+	<!--
+	<h1>Your entry:</h1>
+	<h2>{{.Title}}</h2>
+	<p>{{.Contents}}</p>
+	-->
 
-    <h2>{{.Title}}</h2>
-
-    <p>{{.Contents}}</p>
-
-    <script src="//code.angularjs.org/1.1.5/angular.js"></script>
+	<script src="//code.angularjs.org/1.1.5/angular.js"></script>
+	<script>
+		function DiaryController($scope) {
+			$scope.title = 'Change me!';
+			$scope.message = 'And fill me out, too!';
+		}
+	</script>
+	<div class="content" role="content">
+		<div ng-controller="DiaryController">
+			<input type="text" ng-model="title">
+			<textarea ng-model="message"></textarea>
+		</div>
+	</div>
 </body>
 </html>
