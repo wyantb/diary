@@ -2,10 +2,16 @@
 package diary
 
 import (
+    "http/template"
     "appengine"
     "fmt"
     "net/http"
 )
+
+type DiaryEntry struct {
+    title string
+    contents string
+}
 
 func init() {
     http.HandleFunc("/", handler)
