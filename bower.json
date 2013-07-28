@@ -2,7 +2,8 @@
 	"name": "diary",
 	"version": "0.0.0",
 	"dependencies": {
-		"angular": "*"
+		"angular": "*",
+		"requirejs": "*"
 	},
 	"devDependencies": {}
 }
