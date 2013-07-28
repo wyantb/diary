@@ -3,14 +3,14 @@ package diary
 
 import (
     "io/ioutil"
-    "http/template"
+    "html/template"
     "appengine"
     "net/http"
 )
 
 type DiaryEntry struct {
-    title string
-    contents string
+    Title string
+    Contents string
 }
 
 func init() {
@@ -21,13 +21,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
     c := appengine.NewContext(r)
     c.Debugf("Requested URL: %#v", r.URL, r.URL)
 
-    // TOOD errs
-    mainTemplate, err := ioutil.ReadFile("diary/assets/templates/main.html")
+    mainTemplate, err := loadTemplate("diary/assets/templates/main.html")
+    if err != nil { panic(err) }
 
-    // TODO errs
-    mainTemplate, err := template.New("main").Parse(mainTemplate)
+    compiledTemplate, err := template.New("main").Parse(mainTemplate)
+    if err != nil { panic(err) }
 
     testEntry := DiaryEntry{"Test Entry", "Test Contents"}
 
-    mainTemplate.execute(w, testEntry)
+    compiledTemplate.Execute(w, testEntry)
+}
+
+func loadTemplate(filename string) (template string, err error) {
+    rawTemplate, err := ioutil.ReadFile(filename)
+    template = string(rawTemplate)
+    return
 }
