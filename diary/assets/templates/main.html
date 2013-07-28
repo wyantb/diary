@@ -13,11 +13,12 @@
 	<![endif]-->
 
 	<div class="content" role="content">
-		<div ng-controller="DiaryController">
+		<form name="diaryForm" ng-controller="DiaryController" ng-submit="submit()">
 			<!-- TODO validation -->
-			<input type="text" ng-model="title">
-			<textarea ng-model="message"></textarea>
-		</div>
+			<input name="title" type="text" ng-model="title">
+			<textarea name="message" ng-model="message"></textarea>
+			<input type="submit">
+		</form>
 	</div>
 
 	<script src="js/lib/requirejs/require.js"></script>
