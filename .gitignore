@@ -1,1 +1,4 @@
 *.swp
+diary/assets/js/lib
+node_modules
+npm-debug.log

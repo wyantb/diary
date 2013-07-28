@@ -1,17 +1,25 @@
 
-angular.module('diary.service', [])
-	.value('diary', {
-		placeholder: 'Change me!'
-	});
+define(['angular'],
+		function (angular) {
 
-angular.module('diary.directive', []);
+	'use strict';
 
-angular.module('diary.filter', []);
+	angular.module('diary.service', [])
+		.value('diary', {
+			placeholder: 'Change me!'
+		});
 
-angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter']);
+	angular.module('diary.directive', []);
 
-function DiaryController($scope, diary) {
-	$scope.title = diary.placeholder;
-	$scope.message = 'And fill me out, too!';
-}
+	angular.module('diary.filter', []);
+
+	angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter'])
+		.controller('DiaryController', function ($scope, diary) {
+			$scope.title = diary.placeholder;
+			$scope.message = 'And fill me out, too!';
+		});
+
+	angular.bootstrap(document, ['diary']);
+
+});
 
