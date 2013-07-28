@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="diary">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -21,13 +21,28 @@
 
 	<script src="//code.angularjs.org/1.1.5/angular.js"></script>
 	<script>
-		function DiaryController($scope) {
-			$scope.title = 'Change me!';
+		angular.module('diary.service', [])
+			.value('diary', {
+				placeholder: 'Give me a title!'
+			});
+
+		angular.module('diary.directive', []);
+
+		angular.module('diary.filter', []);
+
+		angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter'])
+			.run(function(diary) {
+				// Anything to init?  Not right now.
+			});
+
+		function DiaryController($scope, diary) {
+			$scope.title = diary.placeholder;
 			$scope.message = 'And fill me out, too!';
 		}
 	</script>
 	<div class="content" role="content">
 		<div ng-controller="DiaryController">
+			<!-- TODO validation -->
 			<input type="text" ng-model="title">
 			<textarea ng-model="message"></textarea>
 		</div>
