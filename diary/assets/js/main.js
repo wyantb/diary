@@ -13,11 +13,14 @@ define(['angular'],
 
 	angular.module('diary.filter', []);
 
+	function DiaryController($scope, diary) {
+		$scope.title = diary.placeholder;
+		$scope.message = 'And fill me out, too!';
+	}
+	DiaryController.$inject = ['$scope', 'diary'];
+
 	angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter'])
-		.controller('DiaryController', function ($scope, diary) {
-			$scope.title = diary.placeholder;
-			$scope.message = 'And fill me out, too!';
-		});
+		.controller('DiaryController', DiaryController);
 
 	angular.bootstrap(document, ['diary']);
 
