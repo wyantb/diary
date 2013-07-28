@@ -1,0 +1,8 @@
+
+Server:
+	REST calls for create/read/readAll
+
+Client:
+	Routing
+		Post page
+		View all page
