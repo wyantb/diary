@@ -20,26 +20,7 @@
 	-->
 
 	<script src="//code.angularjs.org/1.1.5/angular.js"></script>
-	<script>
-		angular.module('diary.service', [])
-			.value('diary', {
-				placeholder: 'Give me a title!'
-			});
-
-		angular.module('diary.directive', []);
-
-		angular.module('diary.filter', []);
-
-		angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter'])
-			.run(function(diary) {
-				// Anything to init?  Not right now.
-			});
-
-		function DiaryController($scope, diary) {
-			$scope.title = diary.placeholder;
-			$scope.message = 'And fill me out, too!';
-		}
-	</script>
+	<script src="js/main.js"></script>
 	<div class="content" role="content">
 		<div ng-controller="DiaryController">
 			<!-- TODO validation -->

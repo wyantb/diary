@@ -1,7 +1,7 @@
 package diary
 
 import (
-	"appengine"
+	//"appengine"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -17,8 +17,8 @@ func init() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	c := appengine.NewContext(r)
-	c.Debugf("Requested URL: %#v", r.URL, r.URL)
+	//c := appengine.NewContext(r)
+	//c.Debugf("Requested URL: %#v", r.URL, r.URL)
 
 	mainTemplate, err := loadTemplate("diary/assets/templates/main.html")
 	if err != nil {
