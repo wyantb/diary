@@ -28,7 +28,17 @@ define(['angular'],
 	DiaryController.$inject = ['$scope', '$http', 'diary'];
 
 	angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter'])
-		.controller('DiaryController', DiaryController);
+		.controller('DiaryController', DiaryController)
+		.config(['$routeProvider', function ($routeProvider) {
+			$routeProvider
+				.when('/diary/new', {
+					templateUrl: 'templates/partials/diary/new.html',
+					controller: 'DiaryController'
+				})
+				.otherwise({
+					redirectTo: '/diary/new'
+				});
+		}]);
 
 	angular.bootstrap(document, ['diary']);
 
