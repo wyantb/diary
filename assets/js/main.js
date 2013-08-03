@@ -17,7 +17,7 @@ define(['angular', 'angular-resource'],
 		$scope.diary = Diary.get({diaryId: 1});
 
 		$scope.submit = function() {
-			alert('submitting!');
+			$scope.diary.$save();
 		};
 	}
 	DiaryController.$inject = ['$scope', '$http', 'Diary'];
