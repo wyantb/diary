@@ -31,12 +31,15 @@ define(['angular'],
 		.controller('DiaryController', DiaryController)
 		.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider
+				.when('/', {
+					templateUrl: 'templates/partials/welcome.html'
+				})
 				.when('/diary/new', {
 					templateUrl: 'templates/partials/diary/new.html',
 					controller: 'DiaryController'
 				})
 				.otherwise({
-					redirectTo: '/diary/new'
+					redirectTo: '/'
 				});
 		}]);
 
