@@ -4,8 +4,14 @@ runtime: go
 api_version: go1
 
 handlers:
+- url: /
+  static_files: assets/templates/index.html
+  upload: assets/templates/index.html
+
 - url: /js
-  static_dir: diary/assets/js/
+  static_dir: assets/js/
+- url: /lib
+  static_dir: assets/lib/
 
 - url: /.*
   script: _go_app
