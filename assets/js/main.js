@@ -1,6 +1,6 @@
 
-define(['angular', 'angular-resource'],
-		function (angular) {
+define(['angular', 'i18n!nls/strings', 'angular-resource'],
+		function (angular, strings) {
 
 	'use strict';
 
@@ -11,7 +11,19 @@ define(['angular', 'angular-resource'],
 
 	angular.module('diary.directive', []);
 
-	angular.module('diary.filter', []);
+	angular.module('diary.filter', [])
+		.filter('i18n', function () {
+			return function (input) {
+				var currentLocaleObject = strings;
+				var keys = input.split('.');
+				var index = 0;
+				while (angular.isObject(currentLocaleObject)) {
+					currentLocaleObject = currentLocaleObject[keys[index]];
+					++index;
+				}
+				return currentLocaleObject ? currentLocaleObject : 'KEY NOT FOUND: ' + input;
+			}
+		});
 
 	function DiaryController($scope, $http, Diary) {
 		$scope.diary = Diary.get({diaryId: 1});

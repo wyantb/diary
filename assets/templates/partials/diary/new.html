@@ -1,8 +1,8 @@
 <form name="diaryForm" ng-controller="DiaryController" ng-submit="submit()">
 	<!-- TODO validation -->
-	<label for="Title">Title</label>
+	<label for="Title">{{'diary.Title.label' | i18n}}</label>
 	<input id="Title" type="text" ng-model="diary.Title">
-	<label for="Contents">Contents</label>
+	<label for="Contents">{{'diary.Contents.label' | i18n}}</label>
 	<textarea id="Contents" ng-model="diary.Contents"></textarea>
 	<input type="submit">
 </form>
