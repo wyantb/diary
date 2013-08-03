@@ -1,9 +1,10 @@
 {
-	"name": "diary",
-	"version": "0.0.0",
-	"dependencies": {
-		"angular": "*",
-		"requirejs": "*"
-	},
-	"devDependencies": {}
+  "name": "diary",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.0.7",
+    "requirejs": "~2.1.8",
+    "angular-resource": "~1.0.7"
+  },
+  "devDependencies": {}
 }

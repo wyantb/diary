@@ -1,31 +1,26 @@
 
-define(['angular'],
+define(['angular', 'angular-resource'],
 		function (angular) {
 
 	'use strict';
 
-	angular.module('diary.service', [])
-		.value('diary', {
-			placeholder: 'Change me!'
-		});
+	angular.module('diary.service', ['ngResource'])
+		.factory('Diary', ['$resource', function ($resource) {
+			return $resource('rest/diary/:diaryId', {}, {});
+		}]);
 
 	angular.module('diary.directive', []);
 
 	angular.module('diary.filter', []);
 
-	function DiaryController($scope, $http, diary) {
-		$scope.Title = diary.placeholder;
-
-		$http.get('rest/diary/1')
-			.success(function(resp) {
-				$scope.Contents = resp.Contents;
-			});
+	function DiaryController($scope, $http, Diary) {
+		$scope.diary = Diary.get({diaryId: 1});
 
 		$scope.submit = function() {
 			alert('submitting!');
 		};
 	}
-	DiaryController.$inject = ['$scope', '$http', 'diary'];
+	DiaryController.$inject = ['$scope', '$http', 'Diary'];
 
 	angular.module('diary', ['diary.service', 'diary.directive', 'diary.filter'])
 		.controller('DiaryController', DiaryController)
