@@ -16,7 +16,7 @@ define(['angular'],
 	function DiaryController($scope, $http, diary) {
 		$scope.title = diary.placeholder;
 
-		$http.get('js/message.json')
+		$http.get('diary')
 			.success(function(resp) {
 				$scope.message = resp.message;
 			});

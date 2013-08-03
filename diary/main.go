@@ -14,6 +14,7 @@ type DiaryEntry struct {
 
 func init() {
 	http.HandleFunc("/", handler)
+	http.HandleFunc("/diary", requestAll)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -39,4 +40,8 @@ func loadTemplate(filename string) (template string, err error) {
 	rawTemplate, err := ioutil.ReadFile(filename)
 	template = string(rawTemplate)
 	return
+}
+
+func requestAll(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("{\"message\": \"Hello!\"}"))
 }
