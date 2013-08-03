@@ -14,11 +14,11 @@ define(['angular'],
 	angular.module('diary.filter', []);
 
 	function DiaryController($scope, $http, diary) {
-		$scope.title = diary.placeholder;
+		$scope.Title = diary.placeholder;
 
 		$http.get('diary')
 			.success(function(resp) {
-				$scope.message = resp.message;
+				$scope.Contents = resp.Contents;
 			});
 
 		$scope.submit = function() {

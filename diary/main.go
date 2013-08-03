@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"io/ioutil"
 	"net/http"
+	"encoding/json"
 )
 
 type DiaryEntry struct {
@@ -43,5 +44,10 @@ func loadTemplate(filename string) (template string, err error) {
 }
 
 func requestAll(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("{\"message\": \"Hello!\"}"))
+	testEntry := DiaryEntry{"Test Entry", "Test Contents"}
+	encoded, err := json.Marshal(testEntry)
+	if err != nil {
+		panic(err)
+	}
+	w.Write(encoded)
 }
