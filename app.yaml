@@ -12,6 +12,8 @@ handlers:
   static_dir: assets/js/
 - url: /lib
   static_dir: assets/lib/
+- url: /templates
+  static_dir: assets/templates/
 
 - url: /.*
   script: _go_app

@@ -11,7 +11,7 @@ type DiaryEntry struct {
 }
 
 func init() {
-	http.HandleFunc("/diary", requestDiary)
+	http.HandleFunc("/rest/diary/1", requestDiary)
 }
 
 func requestDiary(w http.ResponseWriter, r *http.Request) {
