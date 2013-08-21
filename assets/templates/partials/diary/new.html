@@ -1,8 +1,8 @@
-<form name="diaryForm" ng-controller="DiaryController" ng-submit="submit()">
+<form class="panel" name="diaryForm" ng-controller="DiaryController" ng-submit="submit()">
 	<!-- TODO validation -->
 	<label for="Title">{{'diary.Title.label' | i18n}}</label>
-	<input id="Title" type="text" ng-model="diary.Title">
+	<input id="Title" type="text" ng-model="diary.Title" placeholder="{{'diary.Title.placeholder' | i18n}}">
 	<label for="Contents">{{'diary.Contents.label' | i18n}}</label>
-	<textarea id="Contents" ng-model="diary.Contents"></textarea>
+	<textarea id="Contents" ng-model="diary.Contents" placeholder="{{'diary.Contents.placeholder' | i18n}}"></textarea>
 	<input type="submit">
 </form>

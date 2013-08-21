@@ -7,15 +7,23 @@ module.exports = function (grunt) {
 	var config = {};
 
 	var paths = {
-		js: 'diary/assets/js/'
+		js: 'assets/js/',
+		css: 'assets/css/'
 	};
 
 	grunt.initConfig({
 		config: config,
 		paths: paths,
 		watch: {
+			less: {
+				files: '<%= paths.css %>**/*.less',
+				tasks: 'less'
+			}
 		},
 		clean: {
+		},
+		less: {
+			'<%= paths.css %>main.css': '<%= paths.css %>main.less'
 		},
 		jshint: {
 			options: {
@@ -48,16 +56,17 @@ module.exports = function (grunt) {
 		}
 	});
 
-	grunt.registerTask('clean', [
-	]);
-
 	grunt.registerTask('test', [
+		'jshint'
 	]);
 
 	grunt.registerTask('build', [
+		'less'
 	]);
 
 	grunt.registerTask('default', [
-		'jshint',
+		'test',
+		'build'
 	]);
+
 };

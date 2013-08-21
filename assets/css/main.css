@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+form label,
+form input,
+form textarea {
+  display: block;
+}
+.l-constrained {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.content {
+  background-color: #ffffff;
+}
+.panel {
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 20px 10px;
+}
+.panel-centered {
+  display: block;
+  text-align: center;
+}

@@ -22,7 +22,7 @@ define(['angular', 'i18n!nls/strings', 'angular-resource'],
 					++index;
 				}
 				return currentLocaleObject ? currentLocaleObject : 'KEY NOT FOUND: ' + input;
-			}
+			};
 		});
 
 	function DiaryController($scope, $http, Diary) {

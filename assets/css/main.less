@@ -1,0 +1,56 @@
+
+//
+// General guidelines:
+//  http://engineering.appfolio.com/2012/11/16/css-architecture/
+//  http://smacss.com/
+//
+// '-' used for child-like things
+// '_' used as extension point
+//
+
+// TODO mixins
+
+//  BASE
+
+* {
+	box-sizing: border-box;
+}
+
+form {
+	label, input, textarea /* others */ {
+		display: block;
+	}
+}
+
+/// BASE
+
+//  LAYOUT
+
+.l-constrained {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+/// LAYOUT
+
+//  COMPONENTS
+
+.content {
+	background-color: rgb(255, 255, 255);
+}
+
+.panel {
+	border-radius: 5px;
+	background-color: rgb(240, 240, 240);
+	padding: 20px;
+	margin: 20px 10px;
+}
+
+.panel-centered {
+	display: block; // questionable
+	text-align: center;
+}
+
+/// COMPONENTS
+
