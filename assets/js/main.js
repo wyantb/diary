@@ -52,5 +52,25 @@ define(['angular', 'i18n!nls/strings', 'angular-resource'],
 
 	angular.bootstrap(document, ['diary']);
 
+	TraceKit.report.subscribe(function yourLogger(errorReport) {
+		//Example object:
+			// incomplete: false
+			// message: "oops"
+			// mode: "stack"
+			// name: "Error"
+			// partial: true
+			// stack: Array[11]
+			// url: "http://localhost:9000/repos/diary/assets/#/diary/new"
+			// useragent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36"
+			// __proto__: Object
+
+		//console.log(errorReport);
+	});
+	try {
+		throw new Error('oops');
+	} catch (e) {
+		TraceKit.report(e); //error with stack trace gets normalized and sent to subscriber
+	}
+
 });
 
