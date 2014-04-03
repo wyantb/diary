@@ -5,8 +5,8 @@ api_version: go1
 
 handlers:
 - url: /
-  static_files: assets/templates/index.html
-  upload: assets/templates/index.html
+  static_files: assets/index.html
+  upload: assets/index.html
 
 - url: /js
   static_dir: assets/js/
